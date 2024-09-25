@@ -8,6 +8,10 @@
 git clone https://github.com/aws/aws-sdk-js-v3.git
 ```
 
+### Install docker and run below command to create image
+```
+docker build -t node20 .
+```
 
 ### Run below command to run script with node, along with debuging
 ```
