@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Set the root directory to the project root (the directory where the venv is located)
+PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+
+# Define the 'here' command as a function
+here() {
+    
+    docker run --rm -it -p 9229:9229  -v "$PROJECT_ROOT/":/app node20 "$@"
+}
+_intenv(){
+    cd "$PROJECT_ROOT"
+    echo "$PWD"
+    docker build -t node20 .
+}
+
+# Optionally: Change directory to the project root on activation (comment this line if not needed)
+cd "$PROJECT_ROOT"
+
+
+_intenv
+echo "---------------------"
+echo "Environment Activated"
+echo "---------------------"
